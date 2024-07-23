@@ -37,17 +37,21 @@ public class sumArray {
                 s+=arr2[c2];
                 c2--;
             }
+            s+=carry;
             if (s>=10){
-                sum[max-1]=s%10;
-                carry=s/10;
-            } else{
-                sum[max-1]=s+carry;
-                carry=0;
+                carry = 1;
+                s = s%10;
             }
+            else{
+                carry = 0;
+            }
+            sum[max-1] = s;
+
             max--;
         }
 
         System.out.println("Sum of the two arrays is: ");
+        System.out.print(carry);
         for (int j : sum) {
             System.out.print(j);
         }
